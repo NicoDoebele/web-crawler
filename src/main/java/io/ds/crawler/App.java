@@ -14,5 +14,7 @@ public class App {
 
         System.out.println("Press enter to interrupt the process.");
         scanner.nextLine();
+        
+        searcherThread.interrupt();
     }
 }
