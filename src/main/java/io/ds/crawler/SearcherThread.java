@@ -86,10 +86,14 @@ public class SearcherThread extends Thread {
             }
         }
 
-        matcher = email.matcher(webSite);
+        try {
+            matcher = email.matcher(webSite);
 
-        while (matcher.find()) {
-            emails.add(matcher.group());
+            while (matcher.find()) {
+                emails.add(matcher.group());
+            }
+        } catch (StackOverflowError e) {
+            System.out.println("Stackoverflow error at email regex for page " + currentUrl);
         }
     }
 
